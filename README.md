@@ -317,11 +317,6 @@ This system is closed-loop during perception and decision making. Every task sta
 - Allows the robot to adapt to the environment at the start of each operation.
 - Improves reliability and accuracy across vacuum and spraying tasks.
 
-  
-[
-- describe the feedback method and how it adapts system behaviour in real time
-  
-]
 ## Installation and Setup
 
 - Hardware Setup Information (UR5e connection, camera, Teensy, etc.)
@@ -339,19 +334,13 @@ This system is closed-loop during perception and decision making. Every task sta
   * Must calibrate the z-axis offset for different environments
   * Must calibrate the HSV values, depending on lighting conditions and environment
   * During operation, visual markers (yellow crosses) indicate bad leaves
- 
-[
-- step-by-step installation instructions for dependencies and workspace setup
-- hardware setup information (UR5e connection, camera, Teensy, etc.)
-- any environment variables, configuration files, or calibration prcedures required to run the system (can assume there is some sort of hand-eye calibration already present in the system)
 
-]
 ## Running the System 
 
 This section describes how to bring up all core nodes and run the closed-loop automation task.
 
 ### Real robot
-We don't need to build the workspace and do the sourcing. There are scripts in 'default_scripts/' we developed that automatically handle workspace building and environment setup. 
+We don't need to build the workspace or handle sourcing. There are scripts in 'default_scripts/' we developed that automatically handle workspace building and environment setup. 
 But before that, let's go through hardware checks and procedures.
 - Power on the UR5e and release any safety stops.
 - Ensure the controller is in Manual / Automatic control mode(all wired connections to our computer are assumed).
@@ -490,13 +479,6 @@ ros2 topic list
 - **Adaptability:** Closed-loop vision feedback allows dynamic adjustment of robot motion.  
 - **Innovation:** Combines dual-function end-effector with real-time perception for automated plant maintenance in a low-cost, modular setup.
 
-[
-- describe how system performs against its design goals
-- include quantitative results where possible (i.e. accuracy, repeatability)
-- provide photos, figures, videos showing the system in operation
-- highlight robustness, adaptability, and innovation
-
- ]
 ## Discussion and Future Work
   * Reliable Leaf Detection
      * The change in environment introduced noise. This was resolved by adjusting the HSV values to stabilise detections
@@ -519,12 +501,6 @@ ros2 topic list
   * Low hardware cost with high flexibility:
   * Modular Design: the motor mounts can be easily replaced and the closing mount makes 
 
-[
-- briefly discuss major engineering challenges faced and how they were addressed
-- outline opportunities for improvement or extensions (what would you do better for Version 2.0)
-- summarise what makes your approach novel, creative or particularly 
-
-]
 
 ## Contributors and Roles
 |Team Member            |Primary Responsibilities|
@@ -586,11 +562,3 @@ The following resources were particularly useful when developing this system:
 - **Intel RealSense SDK and ROS wrapper** – for configuring the pole-mounted RGB-D camera and accessing synchronised colour and depth streams.
 - **PlantCV** – for implementing leaf segmentation and basic health classification from RGB imagery.
 - **RViz 2** – for visualising the robot model, TF frames, leaf markers, pump status, and planning scene collision objects.
-
-
-
-[
-- credit any external libraries, tutorials, or prior codebases
-- acknowledge external assistance (demonstrators, other groups)
-
-]
