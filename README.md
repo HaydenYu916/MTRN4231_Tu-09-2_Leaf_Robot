@@ -7,7 +7,7 @@ The project was developed and tested on **Ubuntu 22.04 + ROS 2 Humble** with a *
 
 > **Demo:**
 
-![Short Obstacle Run](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/SpedUp%20GIF%201.gif)
+![Short Obstacle Run](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/SpedUp%20GIF%201.gif)
 
 
 
@@ -71,7 +71,7 @@ The diagram below shows the main nodes and their connections. It captures the da
 
 
 **Figure 1 – Node and communication graph for the pesticide sprayer arm**  
-![mtrn 4231 group](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/system_architecture%3A.jpg)
+![mtrn 4231 group](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/system_architecture%3A.jpg)
 
 Key components in the graph:
 
@@ -168,7 +168,7 @@ This modular structure allows each component (perception, manipulation, actuatio
 The high-level behaviour of the system is implemented in the `automation_orchestrator` node as a state-machine-like sequence. Conceptually, the task can be described with the following states:
 
 > **Figure 2 – High-level task state machine Flowchart**
-<img width="4375" height="593" alt="Flowchart" src="https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/flow_chart.png" />
+<img width="4375" height="593" alt="Flowchart" src="https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/flow_chart.png" />
 
 **States:**
 
@@ -248,12 +248,12 @@ The vision pipeline allows for automatic leaf detetction, removing the need for 
 ### Photos/renders
 |Component        |STL File                                                                   |
 |-----------------|---------------------------------------------------------------------------|
-|Whole Assembly   |[Whole Assembly STL](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/STL%20Files/FullAssembly.stl)       |
-|Closing Mount    |[Closing Mount STL](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/STL%20Files/ClosingMount.stl)        |
-|Vacuum Pump Mount|[Vacuum Pump Mount STL](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/STL%20Files/VacuumPumpMount.stl) | 
-|Spray Pump Mount |[Spray Pump Mount STL](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/STL%20Files/SprayMountBox.stl)    |
-|Provided Mount   |[Provided Mount STL](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/STL%20Files/ProvidedMount.stl)      |
-|End Effector     |[End Effector STL](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/STL%20Files/EndEffectorComponent.stl) |
+|Whole Assembly   |[Whole Assembly STL](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/STL%20Files/FullAssembly.stl)       |
+|Closing Mount    |[Closing Mount STL](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/STL%20Files/ClosingMount.stl)        |
+|Vacuum Pump Mount|[Vacuum Pump Mount STL](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/STL%20Files/VacuumPumpMount.stl) | 
+|Spray Pump Mount |[Spray Pump Mount STL](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/STL%20Files/SprayMountBox.stl)    |
+|Provided Mount   |[Provided Mount STL](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/STL%20Files/ProvidedMount.stl)      |
+|End Effector     |[End Effector STL](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/STL%20Files/EndEffectorComponent.stl) |
 
 ### Assembly details
 - Components were 3D modelled in Fusion360 and printed using the Creality Ender V3 3D printer with black PLA filament.
@@ -266,12 +266,12 @@ The vision pipeline allows for automatic leaf detetction, removing the need for 
 ### Engineering drawings
 |Component         |Drawing                                                                          |
 |------------------|---------------------------------------------------------------------------------|
-|Whole Assembly    |[Whole Assembly](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/Drawings/FullAssemblyDrawing.pdf)             |
-|Closing Mount     |[Closing Mount](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/Drawings/ClosingMount.pdf)                     |
-|Vacuum Pump Mount |[Vacuum Pump Mount](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/Drawings/VacuumPumpMount.pdf)              |
-|Spray Pump Mount  |[Spray Pump Mount](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/Drawings/SprayMountBox.pdf)                 |
-|Provided Mount    |[Provided Mount](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/Drawings/ProvidedMount.pdf)                   |
-|End Effector      |[End Effector Mount](https://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/CustomEndEffector/Drawings/EndEffectorComponentDrawing.pdf) |
+|Whole Assembly    |[Whole Assembly](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/Drawings/FullAssemblyDrawing.pdf)             |
+|Closing Mount     |[Closing Mount](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/Drawings/ClosingMount.pdf)                     |
+|Vacuum Pump Mount |[Vacuum Pump Mount](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/Drawings/VacuumPumpMount.pdf)              |
+|Spray Pump Mount  |[Spray Pump Mount](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/Drawings/SprayMountBox.pdf)                 |
+|Provided Mount    |[Provided Mount](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/Drawings/ProvidedMount.pdf)                   |
+|End Effector      |[End Effector Mount](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/CustomEndEffector/Drawings/EndEffectorComponentDrawing.pdf) |
 
 
 ### Control overview 
@@ -299,7 +299,7 @@ These markers update in real-time and appear at the 3D positions used by the rob
 The projected arm configuration is displayed as an orange UR5e arm in RViz2. This provides visual confirmation of the robot moving to the correct position.
 
 > **Figure 3 – Rviz2 Visualisation**
-<img width="935" height="445" alt="Screenshot from 2025-12-03 17-04-21" src="http://github.com/HaydenYu916/Hao_MTRN4231/blob/main/assest/Rviz2%20Visualisation.png" />
+<img width="935" height="445" src="https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/rviz2_visualisation.png" />
 
 
 ## Closed-Loop Operation
@@ -537,7 +537,7 @@ ros2 topic list
 ## Repository Structure
 
 ```text
-Hao_MTRN4231/
+MTRN4231_Tu-09-2_Leaf_Robot/
 ├── default_scripts/              # Shell scripts for bringup / network / camera
 │   ├── start_all.sh             # One-command bringup (fake UR5e + MoveIt)
 │   ├── start_all_real.sh        # One-command bringup for real hardware
