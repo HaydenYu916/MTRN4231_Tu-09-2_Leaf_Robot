@@ -540,8 +540,10 @@ ros2 topic list
 #### 4. Highlights
 **Robustness:** 
 The system maintains reliable performance despite environmental noises and lighting variation. Real-time HSV tuning, error checking and motion compensation make the pipeline resilient during operation. 
+
 **Adaptability:**
 The robot dynamically adjusts its trajectory based on live detections, enabling it to handle changing leaf orientations, plant shapes, and workspace conditions. This closed-loop design avoids hard-coded assumptions and works effectively in unstructured environments.  
+
 **Innovation:** 
 The dual-function end effector, live perception-driven control, and modular hardware architecture represent a novel combination not commonly found in similar robotic plant-care systems. The ability to switch between vacuum-based removal and precision spraying using a single tool is unique.
 
