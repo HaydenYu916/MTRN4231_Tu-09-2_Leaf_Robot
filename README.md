@@ -250,7 +250,10 @@ The vision pipeline allows for automatic leaf detection, removing the need for m
 
 ## Custom End-Effector
 ### Photos/renders
+> **Figure 4 – Fusion360 Render of EndEffector**
 <img src="assest/wholedraft1.png" width="500">
+
+> **Figure 5 – Fusion360 Model of EndEffector**
 <img src="assest/image.png" width="400">
 
 ### STL Files
@@ -267,15 +270,18 @@ The vision pipeline allows for automatic leaf detection, removing the need for m
 - All components were modelled in Fusion360 and printed using a Creality Ender V3 3D printer with black PLA filament.
 - All components are push-fit, meaning that no tape, glue or epoxy is used.
   
+> **Figure 6 – Vacuum Motor and Valve Actuator Positioning**  
 <img src="assest/20251205_113156.jpg" width="400">
 
 - The spray pump is screwed onto the Spray Pump Mount using 2 x M3 x 10mm screws.
   
+> **Figure 7 – Image of Spray Motor**  
 <img src="assest/20251205_113023.jpg" width="400">
 
 - The vacuum pump is threaded into the M10 x 1.0 hole on the end effector body.
 - A MOSFET is placed on the rear of the end-effector using double sided foam tape, to control the spray pump and prevent high currents from entering the Arduino.
   
+> **Figure 8 – Location of MOSFET**  
 <img src="assest/20251205_113257.jpg" width="400">
 
 - Wires are soldered and insulated (electrical tape) to prevent accidental disconnections.
