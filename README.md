@@ -54,12 +54,13 @@ The full stack runs on **Ubuntu 22.04 + ROS 2 Humble**, combining perception, mo
 ### Demo Video (Closed-Loop Cycle)
 
 > **Demo video:** [Obstacles Full Run](https://youtu.be/Z1cQZPDRZZg)  
-> This clip shows one full operation cycle:
-> 1. The arm starts from a home pose while the pole-mounted camera observes the workspace.  
-> 2. The leaf detection node identifies leaf positions and their health status.  
-> 3. The automation node selects a target leaf and MoveIt plans a trajectory.  
-> 4. The UR5e moves to the treatment pose: either spraying pesticide on a healthy leaf or gripping an unhealthy leaf with the vacuum and placing it into the trash area. All while avoiding obstacles(blue boxes). 
-> 5. RViz visualises the robot, detected leaves, and pump status in real time as the arm returns home, ready for the next leaf.
+
+This clip shows one full operation cycle:
+1. The arm starts from a home pose while the pole-mounted camera observes the workspace.  
+2. The leaf detection node identifies leaf positions and their health status.  
+3. The automation node selects a target leaf and MoveIt plans a trajectory.  
+4. The UR5e moves to the treatment pose: either spraying pesticide on a healthy leaf or gripping an unhealthy leaf with the vacuum and placing it into the trash area. All while avoiding obstacles(blue boxes). 
+5. RViz visualises the robot, detected leaves, and pump status in real time as the arm returns home, ready for the next leaf.
 
 # System Architecture 
 
@@ -70,7 +71,8 @@ At a high level, the system is organised into ROS 2 packages that handle robot d
 The diagram below shows the main nodes and their connections. It captures the data flow from the depth camera, through the leaf detection server and task automation node, to the UR5e and the Arduino-controlled sprayer/vacuum tool.
 
 
-**Figure 1 – Node and communication graph for the pesticide sprayer arm**  
+> **Figure 1 – Node and communication graph for the pesticide sprayer arm**
+
 ![mtrn 4231 group](https://github.com/HaydenYu916/MTRN4231_Tu-09-2_Leaf_Robot/blob/main/assest/system_architecture%3A.jpg)
 
 Key components in the graph:
