@@ -85,7 +85,7 @@ Key components in the graph:
     - Publishes camera info:
       - `/camera/camera/color/camera_info`
       - `/camera/camera/depth/camera_info`
-  - **Leaf detection server** (`leaf_detection_server`, in `detect_leaf_pkg`)
+  - **Object detection server** (`leaf_detection_server`, in `detect_leaf_pkg`)
     - Subscribes to RGB and depth topics from the pole-mounted camera.
     - Uses camera intrinsics to recover 3D points.
     - Uses TF to transform points from the camera frame into the robot `base_link` frame.
@@ -93,9 +93,6 @@ Key components in the graph:
       - `/leaf_detection_srv` (`arm_msgs/srv/LeafDetectionSrv`)
         - Request: detection command and parameters.
         - Response: array of leaf coordinates, success flag, debug message.
-  - **Leaf visualisation node** (`leaf_visualization_node`, in `detect_leaf_pkg`)
-    - Subscribes to detection outputs.
-    - Publishes `visualization_msgs/Marker` / `MarkerArray` to RViz to show leaf positions and auxiliary features (e.g. workspace box).
 
 - **Manipulation and Robot Control**
   - **UR5e driver node** (e.g. `ur_robot_driver`)
@@ -107,17 +104,15 @@ Key components in the graph:
     - Performs motion planning for the UR5e.
     - Interacts with the planning scene (static and dynamic collision objects).
     - Accepts planning requests from helper nodes.
-  - **Move-to-pose node** (`move_arm_to_pose`, in `arm_manipulation`)
+  - **Path_Sence node** (`move_arm_to_pose`, in `arm_manipulation`)
     - Uses MoveIt’s C++ API to:
       - Plan to target poses in `base_link` frame.
       - Execute trajectories on the UR5e.
     - Target positions are provided via parameters or launch arguments.
-  - **Dynamic obstacle monitor** (`dynamic_obstacle_control`, in `dynamic_obstacles_monitor`)
-    - Subscribes to a topic such as `obsFromImg` containing `moveit_msgs/msg/CollisionObject`.
-    - Adds/removes collision objects in the MoveIt planning scene to represent dynamic obstacles.
+
 
 - **Task Automation / High-Level Control**
-  - **Automation orchestrator** (`automation_orchestrator`, in `task_automation`)
+  - **Task Manager** (`automation_orchestrator`, in `task_automation`)
     - Calls `/leaf_detection_srv` to obtain leaf positions and (configurable) health classification.
     - For each selected leaf:
       - Computes a safe treatment pose in `base_link` frame.
@@ -135,9 +130,7 @@ Key components in the graph:
     - Publishes a `visualization_msgs/Marker` on `pump_status_marker` to show the current pump state in RViz.
 
 - **Monitoring and Visualisation**
-  - **Arm monitoring node** (`arm_position_viewer`, in `arm_monitoring`)
-    - Reads TF and/or joint states.
-    - Publishes a marker or text overlay with the current end-effector position in `base_link`.
+
   - **RViz**
     - Displays:
       - UR5e model and TF tree,
