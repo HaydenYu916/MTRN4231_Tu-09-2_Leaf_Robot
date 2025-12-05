@@ -27,7 +27,7 @@ The project was developed and tested on **Ubuntu 22.04 + ROS 2 Humble** with a *
 - [Installation and Setup](#installation-and-setup)
 - [Running the System](#running-the-system)
 - [Results and Demonstration](#results-and-demonstration)
-- [Discussion and Future Work](#discussion-and-future-work)
+- [Future Work (Version 2.0)](#future-work-version-20)
 - [Contributors and Roles](#contributors-and-roles)
 - [Repository Structure](#repository-structure)
 - [References and Acknowledgements](#references-and-acknowledgements)
@@ -280,8 +280,7 @@ The vision pipeline allows for automatic leaf detetction, removing the need for 
 - once leaf is detected, controller moves robotic arm to appropriate position using DH parameters
 - if the leaf needs treatment, the system communicated with the Arduino over server/client communication and activates a 12V pump through a MOSFET driver to spray a controlled amount of pesticide.
 - If the leaf needs to be removed, the arm lowers the vacuum to pick it up and transfer it to the designated bin
-  
-### Integration details.
+
 ## System Visualisation
 RViz2 is used to visualise the robot, camera data, detected leaves and obstacles, allowing for verification of the perception and manipulation pipeline. 
 **Robot Model**
@@ -479,27 +478,61 @@ ros2 topic list
 - **Adaptability:** Closed-loop vision feedback allows dynamic adjustment of robot motion.  
 - **Innovation:** Combines dual-function end-effector with real-time perception for automated plant maintenance in a low-cost, modular setup.
 
-## Discussion and Future Work
-  * Reliable Leaf Detection
-     * The change in environment introduced noise. This was resolved by adjusting the HSV values to stabilise detections
-  * Stable robot-camera calibration
-     * reconnecting the camera could shift extrinsics, causing markers to appear in the wrong place in RViz2.
-  * End Effector airflow and spray consistency
-     * Achieving precise spraying without affecting nearby leaves required tuning the z-axis offset
-- outline opportunities for improvement or extensions (what would you do better for Version 2.0)
-  * having a RGB-D camera on the end effector would significantly improve disease detection and 3D localisation from close range
-  * Better disease classification: integrate a more detailed plant model to classify leaf health more accurately (yellow spots, fungal infection)
-  * Full Robot Workspace Mapping: using a structured-light scanning to model the whole plant geometry for improved motion planning
-  * Extension:
-       * combining the vacuum with a gripper to 'pluck' leaves from a tree branch.
-       * Conducting the project on a vertical branch, with leave sticking out rather than flat on the table.
-       * Having multiple spray pumps for different pesticides, ensuring targeted treatment.
-       * having a tool changing mechanism, where vacuum pump and spray nozzle interchange.
-- summarise what makes your approach novel, creative or particularly effective
-  * Fully closed-loop operation: system dynamically adapts its motion to real-time leaf detections rather than relying on hard-coded positions
-  * Dual function end-effector: single tool head performs both leaf removal and precise spraying, reducing hardware complexity
-  * Low hardware cost with high flexibility:
-  * Modular Design: the motor mounts can be easily replaced and the closing mount makes 
+## Future Work (Version 2.0)
+### Proposed Improvements for Version 2.0
+To enhance system performance, robustness, and deployability, the following well-reasoned improvements are proposed for Version 2.0:
+1. **Camera Position:** The current pole-mounted camera suffers from occlusions and long-range depth noise, frequently resulting in inaccurate depth measurements.
+
+   **V2.0 improvement:** Integrate a compact RGB-D camera module directly onto the end-effector to enable millimetre-level localisation and reliable perception under occlusion.
+    
+3. **Learning-based disease and leaf detection**
+    The existing HSV segmentation approach is highly sensitive to lighting conditions and requires manual colour threshold adjustment whenever the environment changes.
+
+   **V2.0 improvement:** Train a YOLO-based model to detect leaves and classify disease symptoms.
+    **Impact:** Increased robustness across lighting variations, removal of colour markers, and significantly improved autonomous decision-making.
+    
+4. **Full-scene 3D reconstruction for motion planning**
+    Current planning relies on simplified collision objects and colour-thresholded obstacle maps, which cannot represent the true 3D structure of the environment.
+
+   **V2.0 improvement:** Use structured-light scanning or multi-view depth fusion to generate dense 3D representations of the plant.
+    
+5. **Modular multi-tool end-effector**
+    The existing end-effector lacks extensibility and fine control over airflow or spray distribution.
+
+   **V2.0 improvement:** Develop a quick-swap interface supporting vacuum, sprayer, and micro-gripper tools; optimise airflow channels; and implement controllable spray nozzles.
+    
+6. **Deployment in vertical or natural crop structures**
+    The current design assumes planar leaf structures, whereas real plants are three-dimensional and irregular.
+
+    **V2.0 improvement:** Extend perception and planning to handle vertical foliage, vine crops, and irregular plant geometries.
+    **Impact:** A significant step toward real smart-greenhouse deployment.
+---
+
+### External Factors for Version 2.0 and Mitigation Strategies
+
+Several external factors—beyond direct system control—may significantly influence performance. A robust Version 2.0 must identify and mitigate these challenges.
+
+1. **Lighting variability** 
+    Changes in natural or artificial lighting affect both colour segmentation and depth sensing.  
+
+   **Mitigation:** Replace classical HSV methods with YOLO or other deep-learning approaches that provide greater invariance to illumination changes.
+    
+3. **Leaf motion caused by airflow or plant flexibility**
+    Leaves naturally move due to ventilation, external disturbances, or their own structural flexibility. 
+
+   **Mitigation:** Implement real-time target tracking, closed-loop motion adjustments, and velocity scaling near the target area.
+    
+4. **Safety and workspace constraints**
+    Limited laboratory space and the presence of humans require predictable and safe robot behaviour.
+
+   **Mitigation:** Define safety zones, enable speed scaling, implement collision monitoring, and improve workspace visualisation.
+    
+5. **Mechanical wear and calibration drift**
+    End-effector seals, arm joints, and spray nozzles degrade over time, affecting system accuracy.
+
+   **Mitigation:** Establish regular calibration routines, leak-detection checks, nozzle maintenance, and scheduled re-alignment.
+   
+---
 
 
 ## Contributors and Roles
@@ -540,8 +573,6 @@ MTRN4231_Tu-09-2_Leaf_Robot/
 ├── requirements.txt              # Python dependencies (pip: numpy / opencv-python / plantcv / pyrealsense2)
 └── README
 ```
-**Custom End Effector**
-  
 
 ## References and Acknowledgements
 
@@ -554,11 +585,17 @@ We would like to thank:
 - The maintainers of the open-source ROS, MoveIt and RealSense ecosystems, whose tools and examples formed the backbone of this project.
 
 
-The following resources were particularly useful when developing this system:
+The following resources were beneficial when developing this system:
 
-- **ROS 2 Humble documentation** – for node composition, parameters, launch files, and TF2 usage.
-- **MoveIt 2 Tutorials** – for setting up the UR5e MoveIt configuration, planning scene, and `MoveGroupInterface`-based motion planning.
-- **Universal Robots ROS 2 driver** – for integrating the physical UR5e with ROS 2 and enabling external control.
-- **Intel RealSense SDK and ROS wrapper** – for configuring the pole-mounted RGB-D camera and accessing synchronised colour and depth streams.
-- **PlantCV** – for implementing leaf segmentation and basic health classification from RGB imagery.
-- **RViz 2** – for visualising the robot model, TF frames, leaf markers, pump status, and planning scene collision objects.
+- **[ROS 2 Humble Documentation](https://docs.ros.org/en/humble/)** – reference for node composition, parameters, launch files, and TF2 usage.
+
+- **[MoveIt 2 Tutorials](https://moveit.picknik.ai/main/doc/tutorials/tutorials.html)** – used for configuring the UR5e, the planning scene, and `MoveGroupInterface`-based motion planning.
+
+- **[Universal Robots ROS 2 Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver)** – provides ROS 2 integration and external control for the UR5e arm.
+
+- **[RealSense ROS Wrapper](https://github.com/IntelRealSense/realsense-ros)** – for configuring the RGB-D camera and accessing synchronised colour/depth data.
+
+- **[PlantCV](https://plantcv.danforthcenter.org/)** – used for developing initial leaf segmentation and basic plant health analysis.
+
+- **[RViz 2](https://github.com/ros2/rviz)** – for visualising TF frames, robot states, leaf markers, and planning scene collision objects.
+
